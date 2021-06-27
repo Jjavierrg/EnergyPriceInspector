@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="AccentColor">#FFAB40</Color>
+    <Color x:Key="DarkAccentColor">#C56200</Color>
+    <Color x:Key="LightAccentColor">#FFC246</Color>
+    <Color x:Key="TextColor">#212121</Color>
+    <Color x:Key="AlternateTextColor">#FAFAFA</Color>
+</ResourceDictionary>

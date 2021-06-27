@@ -1,5 +1,6 @@
 ﻿namespace EnergyPriceInspector
 {
+    using EnergyPriceInspector.Views;
     using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
@@ -9,8 +10,7 @@
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new ShellView();
         }
 
         protected override void OnStart()
