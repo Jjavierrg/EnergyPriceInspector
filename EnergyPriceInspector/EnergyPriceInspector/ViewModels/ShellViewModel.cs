@@ -2,6 +2,6 @@
 {
     public class ShellViewModel : BaseViewModel
     {
-        public ShellViewModel() => Title = "Hola Caracola";
+        public ShellViewModel() => Title = Langs.Langs.AppTitle;
     }
 }

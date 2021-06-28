@@ -8,5 +8,9 @@
         <Setter Property="FontSize" Value="26"/>
         <Setter Property="BackgroundColor" Value="{DynamicResource AccentColor}"/>
         <Setter Property="TextColor" Value="{DynamicResource AlternateTextColor}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HeightRequest" Value="80"/>
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 </ResourceDictionary>

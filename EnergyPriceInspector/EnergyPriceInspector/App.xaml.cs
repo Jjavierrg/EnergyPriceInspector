@@ -1,5 +1,6 @@
 ﻿namespace EnergyPriceInspector
 {
+    using EnergyPriceInspector.Services;
     using EnergyPriceInspector.Views;
     using System;
     using Xamarin.Forms;
@@ -10,6 +11,9 @@
         public App()
         {
             InitializeComponent();
+            RegisterDependencies();
+            RegisterRoutes();
+
             MainPage = new ShellView();
         }
 
@@ -23,6 +27,18 @@
 
         protected override void OnResume()
         {
+        }
+
+        private void RegisterDependencies()
+        {
+            DependencyService.Register<INavigationService, NavigationService>();
+        }
+
+        private void RegisterRoutes()
+        {
+            var navigationService = DependencyService.Get<INavigationService>();
+            navigationService.RegisterRouteComponent<DashboardView>();
+            navigationService.RegisterRouteComponent<AboutView>();
         }
     }
 }

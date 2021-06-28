@@ -11,10 +11,10 @@
         <vm:ShellViewModel />
     </Shell.BindingContext>
     <Shell.FlyoutHeader>
-        <Label HeightRequest="170" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Style="{DynamicResource HeaderLabel}" Text="{Binding Title}"></Label>
+        <Label Style="{DynamicResource HeaderLabel}" Text="{Binding Title}"></Label>
     </Shell.FlyoutHeader>
     <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsMultipleItems" Shell.TabBarIsVisible="False">
-        <ShellContent Icon="dashboard.png" Title="Bears" ContentTemplate="{DataTemplate v:DashboardView}" />
-        <ShellContent Icon="info.png" Title="About" ContentTemplate="{DataTemplate v:AboutView}" />
+        <ShellContent Icon="dashboard.png" Title="{Static lang:Langs.DashboardTitle}" ContentTemplate="{DataTemplate v:DashboardView}" />
+        <ShellContent Icon="info.png" Title="{Static lang:Langs.AboutTitle}" ContentTemplate="{DataTemplate v:AboutView}" />
     </FlyoutItem>
 </Shell>

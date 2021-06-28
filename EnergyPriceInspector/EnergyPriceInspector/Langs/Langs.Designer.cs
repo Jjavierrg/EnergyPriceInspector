@@ -61,11 +61,29 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome Text.
+        ///   Looks up a localized string similar to About.
         /// </summary>
-        internal static string WelcomeText {
+        internal static string AboutTitle {
             get {
-                return ResourceManager.GetString("WelcomeText", resourceCulture);
+                return ResourceManager.GetString("AboutTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Energy Inspector.
+        /// </summary>
+        internal static string AppTitle {
+            get {
+                return ResourceManager.GetString("AppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        internal static string DashboardTitle {
+            get {
+                return ResourceManager.GetString("DashboardTitle", resourceCulture);
             }
         }
     }
