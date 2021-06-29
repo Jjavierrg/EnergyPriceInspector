@@ -3,13 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
              x:Class="EnergyPriceInspector.Views.AboutView"
+             IsBusy="{Binding IsBusy}"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="About!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <ScrollView>
+                <FlexLayout Direction="Column">
+                    <Button Text="Cambiar busy" Command="{Binding BusyToogleCommand}" />
+                </FlexLayout>
+            </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

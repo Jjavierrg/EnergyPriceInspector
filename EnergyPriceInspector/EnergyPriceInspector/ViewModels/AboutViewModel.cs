@@ -8,17 +8,13 @@ namespace EnergyPriceInspector.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        private Command navigateCommand;
-        private readonly INavigationService navigationService;
+        private Command busyToogleCommand;
 
         public AboutViewModel()
         {
             Title = Langs.Langs.AboutTitle;
-            navigationService = DependencyService.Get<INavigationService>();
         }
 
-        public ICommand NavigateCommand => navigateCommand ??= new Command(async () => await NavigateCommandExecute());
-
-        private Task NavigateCommandExecute() => navigationService.NavigateToAsync<AboutView>();
+        public ICommand BusyToogleCommand => busyToogleCommand ??= new Command(() => IsBusy = !IsBusy);
     }
 }
