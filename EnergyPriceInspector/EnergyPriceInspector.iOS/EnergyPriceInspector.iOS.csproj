@@ -139,4 +139,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\dashboard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trending_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trending_up.png" />
+  </ItemGroup>
 </Project>

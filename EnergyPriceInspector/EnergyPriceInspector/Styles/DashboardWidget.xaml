@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
+                    >
+    <Style TargetType="ctrl:DashboardWidget" ApplyToDerivedTypes="True">
+        <Setter Property="ControlTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Frame Margin="10" CornerRadius="10" BackgroundColor="{Binding Source={RelativeSource TemplatedParent}, Path=ColorStyle, Converter={StaticResource ColorStyleToBackgroundColorConverter}}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image WidthRequest="24">
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type ctrl:DashboardWidget}}, Path=ColorStyle}" Value="HighValue">
+                                        <Setter Property="Source" Value="trending_up.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type ctrl:DashboardWidget}}, Path=ColorStyle}" Value="LowValue">
+                                        <Setter Property="Source" Value="trending_down.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type ctrl:DashboardWidget}}, Path=ColorStyle}" Value="Info">
+                                        <Setter Property="Source" Value="trending_down.png"/>
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+                            <Label HorizontalOptions="Start" VerticalOptions="End" Grid.Row="0" Grid.Column="1" Text="{Binding Source={RelativeSource TemplatedParent}, Path=ColorStyle, Converter={StaticResource ColorStyleToTitleConverter}}" Style="{DynamicResource CaptionStyle}" TextColor="{DynamicResource AlternateTextColor}" Margin="5,0" />
+                            <Label HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Source={RelativeSource TemplatedParent}, Path=Price, StringFormat='{0:C}'}" Style="{DynamicResource TitleStyle}" TextColor="{DynamicResource AlternateTextColor}" />
+                        </Grid>
+                    </Frame>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

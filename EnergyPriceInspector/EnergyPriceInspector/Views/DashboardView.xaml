@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
+             xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
              x:Class="EnergyPriceInspector.Views.DashboardView"
              Title="{Binding Title}"
              >
@@ -9,11 +10,27 @@
         <vm:DashboardViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.dddForms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Navigate" Command="{Binding NavigateCommand}" />
-        </StackLayout>
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <ScrollView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <ctrl:DashboardWidget Grid.Row="0" Grid.Column="0" Price="20.99" ColorStyle="HighValue" HeightRequest="1" />
+                    <ctrl:DashboardWidget Grid.Row="0" Grid.Column="1" Price="3.0" ColorStyle="LowValue" />
+                    <ctrl:DashboardWidget Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Price="10.0" ColorStyle="Info"  />
+                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Hola" />
+                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Caracola" />
+                </Grid>
+            </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

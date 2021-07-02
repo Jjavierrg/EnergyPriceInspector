@@ -4,6 +4,9 @@
     <Color x:Key="AccentColor">#FFAB40</Color>
     <Color x:Key="DarkAccentColor">#C56200</Color>
     <Color x:Key="LightAccentColor">#FFC246</Color>
+    <Color x:Key="SuccessColor">#388e3c</Color>
+    <Color x:Key="DangerColor">#d32f2f</Color>
+    <Color x:Key="InfoColor">#1e88e5</Color>
     <Color x:Key="TextColor">#212121</Color>
     <Color x:Key="AlternateTextColor">#FAFAFA</Color>
 </ResourceDictionary>

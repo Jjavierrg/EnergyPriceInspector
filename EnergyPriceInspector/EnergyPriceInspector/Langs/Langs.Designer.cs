@@ -86,5 +86,32 @@ namespace EnergyPriceInspector.Langs {
                 return ResourceManager.GetString("DashboardTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max.
+        /// </summary>
+        internal static string Max {
+            get {
+                return ResourceManager.GetString("Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min.
+        /// </summary>
+        internal static string Min {
+            get {
+                return ResourceManager.GetString("Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Now.
+        /// </summary>
+        internal static string Now {
+            get {
+                return ResourceManager.GetString("Now", resourceCulture);
+            }
+        }
     }
 }

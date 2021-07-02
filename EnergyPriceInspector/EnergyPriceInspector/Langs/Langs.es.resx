@@ -126,4 +126,13 @@
   <data name="DashboardTitle" xml:space="preserve">
     <value>Resumen</value>
   </data>
+  <data name="Max" xml:space="preserve">
+    <value>Máx</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Now" xml:space="preserve">
+    <value>Ahora</value>
+  </data>
 </root>
