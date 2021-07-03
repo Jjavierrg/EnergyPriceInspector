@@ -1,6 +1,8 @@
 ﻿namespace EnergyPriceInspector.Services
 {
     using EnergyPriceInspector.ApiClient;
+    using EnergyPriceInspector.Models;
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -15,11 +17,12 @@
 
         private IApiClientFactory ApiClientFactory { get; }
 
-        public async Task GetPrices()
+        public async Task<PriceResponse> GetPricesAsync()
         {
             var client = ApiClientFactory.GetApiClient();
             var result = await client.GetAsync("/indicators/10391");
-            var response = await result.Content.ReadAsStringAsync();
+            var jsonResponse = await result.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<PriceResponse>(jsonResponse);
         }
     }
 }

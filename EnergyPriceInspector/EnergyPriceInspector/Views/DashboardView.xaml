@@ -27,8 +27,7 @@
                     <ctrl:DashboardWidget Grid.Row="0" Grid.Column="0" Price="20.99" ColorStyle="HighValue" HeightRequest="1" />
                     <ctrl:DashboardWidget Grid.Row="0" Grid.Column="1" Price="3.0" ColorStyle="LowValue" />
                     <ctrl:DashboardWidget Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Price="10.0" ColorStyle="Info"  />
-                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Hola" />
-                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Caracola" />
+                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Save Data" Command="{Binding NavigateCommand}" />
                 </Grid>
             </ScrollView>
         </RefreshView>

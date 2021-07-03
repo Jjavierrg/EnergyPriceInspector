@@ -6,6 +6,7 @@
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              x:Class="EnergyPriceInspector.Views.ShellView"
              BackgroundColor="{DynamicResource AccentColor}"
+            IsBusy="{ Binding IsBusy}"
        >
     <Shell.BindingContext>
         <vm:ShellViewModel />

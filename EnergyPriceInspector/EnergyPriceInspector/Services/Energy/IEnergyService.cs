@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using EnergyPriceInspector.Models;
+using System.Threading.Tasks;
 
 namespace EnergyPriceInspector.Services
 {
     public interface IEnergyService
     {
-        Task GetPrices();
+        Task<PriceResponse> GetPricesAsync();
     }
 }

@@ -8,28 +8,30 @@ namespace EnergyPriceInspector.ViewModels
 {
     public class DashboardViewModel : BaseViewModel
     {
-        private Command navigateCommand;
-        private Command refreshCommand;
+        private Command _navigateCommand;
+        private Command _refreshCommand;
 
         public DashboardViewModel()
         {
             Title = Langs.Langs.DashboardTitle;
             NavigationService = DependencyService.Get<INavigationService>();
             EnergyService = DependencyService.Get<IEnergyService>();
+            StorageService = DependencyService.Get<IStorageService>();
 
-            _ = Task.Run(() => LoadData());
+            _ = LoadData().ConfigureAwait(false);
         }
 
-        public ICommand NavigateCommand => navigateCommand ??= new Command(async () => await NavigateCommandExecute(), () => !IsBusy);
-        public ICommand RefreshCommand => refreshCommand ??= new Command(async () => await LoadData());
+        public ICommand NavigateCommand => _navigateCommand ??= new Command(async () => await NavigateCommandExecute(), () => !IsBusy);
+        public ICommand RefreshCommand => _refreshCommand ??= new Command(async () => await LoadData());
 
         private INavigationService NavigationService { get; }
         private IEnergyService EnergyService { get; }
+        private IStorageService StorageService { get; }
 
         protected override void OnBusyChanged()
         {
-            navigateCommand?.ChangeCanExecute();
-            refreshCommand?.ChangeCanExecute();
+            _navigateCommand?.ChangeCanExecute();
+            _refreshCommand?.ChangeCanExecute();
         }
 
         private async Task LoadData()
@@ -37,8 +39,8 @@ namespace EnergyPriceInspector.ViewModels
             IsBusy = true;
             try
             {
-                await EnergyService.GetPrices();
-                await Task.Delay(5000);
+                var result = await EnergyService.GetPricesAsync();
+                await StorageService.SaveDataAsync("LAST_DATA", result);
             }
             finally
             {

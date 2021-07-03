@@ -5,11 +5,10 @@
     using EnergyPriceInspector.Services;
     using EnergyPriceInspector.Views;
     using Newtonsoft.Json;
-    using System;
     using System.IO;
     using System.Reflection;
+    using System.Threading.Tasks;
     using Xamarin.Forms;
-    using Xamarin.Forms.Xaml;
 
     public partial class App : Application
     {
@@ -55,6 +54,7 @@
             DependencyService.Register<INavigationService, NavigationService>();
             DependencyService.Register<IApiClientFactory, ApiClientFactory>();
             DependencyService.Register<IEnergyService, EnergyService>();
+            DependencyService.Register<IStorageService, PropertyStorageService>();
         }
 
         private void RegisterRoutes()
