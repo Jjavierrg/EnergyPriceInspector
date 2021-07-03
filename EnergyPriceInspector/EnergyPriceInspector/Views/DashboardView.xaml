@@ -10,7 +10,7 @@
         <vm:DashboardViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshCommand}" >
             <ScrollView>
                 <Grid>
                     <Grid.ColumnDefinitions>

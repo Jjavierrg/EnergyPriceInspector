@@ -145,4 +145,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\trending_up.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\now.png" />
+  </ItemGroup>
 </Project>

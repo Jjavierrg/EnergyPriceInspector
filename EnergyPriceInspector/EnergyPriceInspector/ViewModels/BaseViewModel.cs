@@ -12,7 +12,7 @@
         public bool IsBusy
         {
             get => _isBusy;
-            set => SetProperty(ref _isBusy, value);
+            set => SetProperty(ref _isBusy, value, "IsBusy", OnBusyChanged);
         }
 
         public string Title
@@ -20,6 +20,8 @@
             get => _title;
             set => SetProperty(ref _title, value);
         }
+
+        protected virtual void OnBusyChanged() { }
 
         protected bool SetProperty<T>(ref T property, T value, [CallerMemberName] string propertyName = "", Action onChanged = null)
         {
