@@ -79,6 +79,33 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Baleares.
+        /// </summary>
+        internal static string Baleares {
+            get {
+                return ResourceManager.GetString("Baleares", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Canarias.
+        /// </summary>
+        internal static string Canarias {
+            get {
+                return ResourceManager.GetString("Canarias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ceuta.
+        /// </summary>
+        internal static string Ceuta {
+            get {
+                return ResourceManager.GetString("Ceuta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         internal static string DashboardTitle {
@@ -88,11 +115,38 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General Settings.
+        /// </summary>
+        internal static string GeneralSettings {
+            get {
+                return ResourceManager.GetString("GeneralSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        internal static string Location {
+            get {
+                return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max.
         /// </summary>
         internal static string Max {
             get {
                 return ResourceManager.GetString("Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Melilla.
+        /// </summary>
+        internal static string Melilla {
+            get {
+                return ResourceManager.GetString("Melilla", resourceCulture);
             }
         }
         
@@ -111,6 +165,24 @@ namespace EnergyPriceInspector.Langs {
         internal static string Now {
             get {
                 return ResourceManager.GetString("Now", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Península.
+        /// </summary>
+        internal static string Peninsula {
+            get {
+                return ResourceManager.GetString("Peninsula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string SettingsTitle {
+            get {
+                return ResourceManager.GetString("SettingsTitle", resourceCulture);
             }
         }
     }

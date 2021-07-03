@@ -123,16 +123,40 @@
   <data name="AppTitle" xml:space="preserve">
     <value>Energy Inspector</value>
   </data>
+  <data name="Baleares" xml:space="preserve">
+    <value>Baleares</value>
+  </data>
+  <data name="Canarias" xml:space="preserve">
+    <value>Canarias</value>
+  </data>
+  <data name="Ceuta" xml:space="preserve">
+    <value>Ceuta</value>
+  </data>
   <data name="DashboardTitle" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="GeneralSettings" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
   <data name="Max" xml:space="preserve">
     <value>Max</value>
+  </data>
+  <data name="Melilla" xml:space="preserve">
+    <value>Melilla</value>
   </data>
   <data name="Min" xml:space="preserve">
     <value>Min</value>
   </data>
   <data name="Now" xml:space="preserve">
     <value>Now</value>
+  </data>
+  <data name="Peninsula" xml:space="preserve">
+    <value>Península</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

@@ -13,9 +13,11 @@
     {
         public EnergyService() {
             ApiClientFactory = DependencyService.Get<IApiClientFactory>() ?? throw new ArgumentNullException("IApiClientFactory");
+            UserConfiguration = DependencyService.Get<UserConfiguration>() ?? throw new ArgumentNullException("UserConfiguration");
         }
 
         private IApiClientFactory ApiClientFactory { get; }
+        private UserConfiguration UserConfiguration { get; }
 
         public async Task<PriceResponse> GetPricesAsync()
         {

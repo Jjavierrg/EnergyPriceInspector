@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
+             xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
+             x:Class="EnergyPriceInspector.Views.SettingsView"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <TableView HasUnevenRows="True" Intent="Settings">
+            <TableRoot>
+                <TableSection Title="{Static lang:Langs.GeneralSettings}" TextColor="{StaticResource DarkAccentColor}">
+                    <ViewCell>
+                        <Grid Margin="10,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="{Static lang:Langs.Location}" VerticalOptions="CenterAndExpand" Margin="5,0,0,0" TextColor="{DynamicResource DarkAccentColor}"></Label>
+                            <Picker Grid.Column="1" ItemsSource="{Binding GeoLocations}" SelectedItem="{Binding SelectedGeolocation, Mode=TwoWay}" ItemDisplayBinding="{Binding geo_name}" />
+                        </Grid>
+                    </ViewCell>
+                    <EntryCell Label="ddd"></EntryCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

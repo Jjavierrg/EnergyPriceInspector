@@ -11,7 +11,7 @@ namespace EnergyPriceInspector.ViewModels
         public ShellViewModel()
         {
             Title = Langs.Langs.AppTitle;
-            StorageService = DependencyService.Get<IStorageService>() ?? throw new ArgumentNullException(nameof(IStorageService));
+            StorageService = DependencyService.Get<IStorageService>() ?? throw new ArgumentNullException("IStorageService");
 
             _ = LoadUserConfigurationAsync().ConfigureAwait(false);
         }

@@ -62,6 +62,7 @@
             var navigationService = DependencyService.Get<INavigationService>();
             navigationService.RegisterRouteComponent<DashboardView>();
             navigationService.RegisterRouteComponent<AboutView>();
+            navigationService.RegisterRouteComponent<SettingsView>();
         }
     }
 }
