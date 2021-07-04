@@ -11,6 +11,7 @@
                     <conv:ColorStyleToTitleConverter x:Key="ColorStyleToTitleConverter" />
                 </ResourceDictionary>
                 <ResourceDictionary Source="Styles/Colors.xaml" />
+                <ResourceDictionary Source="Styles/Theme.xaml" />
                 <ResourceDictionary Source="Styles/Labels.xaml" />
                 <ResourceDictionary Source="Styles/Buttons.xaml" />
                 <ResourceDictionary Source="Styles/DashboardWidget.xaml" />

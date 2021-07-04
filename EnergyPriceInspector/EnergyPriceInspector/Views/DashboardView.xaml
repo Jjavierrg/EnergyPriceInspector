@@ -9,8 +9,11 @@
     <ContentPage.BindingContext>
         <vm:DashboardViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="settings.png" Command="{Binding NavigateToSettingsCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshCommand}" >
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshCommand}">
             <ScrollView>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -20,14 +23,16 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                         <RowDefinition />
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
-                    <ctrl:DashboardWidget Grid.Row="0" Grid.Column="0" Price="20.99" ColorStyle="HighValue" HeightRequest="1" />
-                    <ctrl:DashboardWidget Grid.Row="0" Grid.Column="1" Price="3.0" ColorStyle="LowValue" />
-                    <ctrl:DashboardWidget Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Price="10.0" ColorStyle="Info"  />
-                    <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="Save Data" Command="{Binding NavigateCommand}" />
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding DashboardData.UpdatedDate, StringFormat='Last Update: {0}'}" HorizontalOptions="End" />
+                    <ctrl:DashboardWidget Grid.Row="1" Grid.Column="0" Price="{Binding DashboardData.MaxPrice.Price}" ColorStyle="HighValue" HeightRequest="1" />
+                    <ctrl:DashboardWidget Grid.Row="1" Grid.Column="1" Price="{Binding DashboardData.MinPrice.Price}" ColorStyle="LowValue" />
+                    <ctrl:DashboardWidget Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Price="{Binding DashboardData.ActualPrice.Price}" ColorStyle="Info"  />
+                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Save Data" Command="{Binding NavigateCommand}" />
                 </Grid>
             </ScrollView>
         </RefreshView>

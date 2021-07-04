@@ -5,8 +5,7 @@
              xmlns:v="clr-namespace:EnergyPriceInspector.Views"
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              x:Class="EnergyPriceInspector.Views.ShellView"
-             BackgroundColor="{DynamicResource AccentColor}"
-            IsBusy="{ Binding IsBusy}"
+             IsBusy="{Binding IsBusy}"
        >
     <Shell.BindingContext>
         <vm:ShellViewModel />
@@ -17,6 +16,5 @@
     <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsMultipleItems" Shell.TabBarIsVisible="False">
         <ShellContent Icon="dashboard.png" Title="{Static lang:Langs.DashboardTitle}" ContentTemplate="{DataTemplate v:DashboardView}" />
         <ShellContent Icon="info.png" Title="{Static lang:Langs.AboutTitle}" ContentTemplate="{DataTemplate v:AboutView}" />
-        <ShellContent Icon="settings.png" Title="{Static lang:Langs.SettingsTitle}" ContentTemplate="{DataTemplate v:SettingsView}" />
     </FlyoutItem>
 </Shell>

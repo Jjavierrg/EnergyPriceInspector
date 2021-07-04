@@ -1,11 +1,11 @@
-﻿using EnergyPriceInspector.Models;
-using EnergyPriceInspector.Services;
-using System;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-
-namespace EnergyPriceInspector.ViewModels
+﻿namespace EnergyPriceInspector.ViewModels
 {
+    using EnergyPriceInspector.Models;
+    using EnergyPriceInspector.Services;
+    using System;
+    using System.Threading.Tasks;
+    using Xamarin.Forms;
+
     public class ShellViewModel : BaseViewModel
     {
         public ShellViewModel()
@@ -15,22 +15,15 @@ namespace EnergyPriceInspector.ViewModels
 
             _ = LoadUserConfigurationAsync().ConfigureAwait(false);
         }
+
         private IStorageService StorageService { get; }
 
-        private async Task LoadUserConfigurationAsync()
+        private Task LoadUserConfigurationAsync() => ExecuteWithBusyIndicatorControl(async () =>
         {
-            IsBusy = true;
             var userConfig = await StorageService.LoadDataAsync<UserConfiguration>(Constants.Constants.CONFIGURATION_SAVE_KEY);
-            if (userConfig == null)
-            {
-                userConfig = new UserConfiguration
-                {
-                    GeoId = 1
-                };
-            }
+            userConfig ??= new UserConfiguration();
 
             DependencyService.RegisterSingleton(userConfig);
-            IsBusy = false;
-        }
+        });
     }
 }

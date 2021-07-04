@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public static class EnumerableExtension
     {
@@ -18,6 +19,23 @@
 
             foreach (var item in enumerable)
                 action(item);
+        }
+        public static async Task<IEnumerable<TOut>> SelectAsync<TIn, TOut>(this IEnumerable<TIn> enumerable, Func<TIn, Task<TOut>> selectFunc)
+        {
+            if (!(enumerable?.Any() ?? false))
+                return Array.Empty<TOut>();
+
+            if (selectFunc == null)
+                return Array.Empty<TOut>();
+
+            var resultList = new List<TOut>();
+            foreach (var item in enumerable)
+            {
+                var result = await selectFunc(item);
+                resultList.Add(result);
+            }
+
+            return resultList;
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class PriceResponse
+    public class ApiResponse
     {
         public Indicator indicator { get; set; }
     }

@@ -11,18 +11,17 @@
     <ContentPage.Content>
         <TableView HasUnevenRows="True" Intent="Settings">
             <TableRoot>
-                <TableSection Title="{Static lang:Langs.GeneralSettings}" TextColor="{StaticResource DarkAccentColor}">
+                <TableSection Title="{Static lang:Langs.GeneralSettings}" TextColor="{AppThemeBinding Light={StaticResource DarkAccentColor}, Dark={StaticResource AlternatePrimaryText}}">
                     <ViewCell>
                         <Grid Margin="10,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="0" Text="{Static lang:Langs.Location}" VerticalOptions="CenterAndExpand" Margin="5,0,0,0" TextColor="{DynamicResource DarkAccentColor}"></Label>
-                            <Picker Grid.Column="1" ItemsSource="{Binding GeoLocations}" SelectedItem="{Binding SelectedGeolocation, Mode=TwoWay}" ItemDisplayBinding="{Binding geo_name}" />
+                            <Label Grid.Column="0" Text="{Static lang:Langs.Location}" VerticalOptions="CenterAndExpand" Margin="5,0,0,0" Style="{DynamicResource CellLabel}"></Label>
+                            <Picker Grid.Column="1" ItemsSource="{Binding GeoLocations}" SelectedItem="{Binding SelectedGeolocation, Mode=TwoWay}" ItemDisplayBinding="{Binding Name}" />
                         </Grid>
                     </ViewCell>
-                    <EntryCell Label="ddd"></EntryCell>
                 </TableSection>
             </TableRoot>
         </TableView>

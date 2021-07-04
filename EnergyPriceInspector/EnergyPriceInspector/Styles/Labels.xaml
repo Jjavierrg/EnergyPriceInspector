@@ -2,15 +2,20 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Style TargetType="Label" ApplyToDerivedTypes="True">
-        <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource AlternateTextColor}}"/>
     </Style>
+    
     <Style TargetType="Label" x:Key="HeaderLabel">
         <Setter Property="FontSize" Value="26"/>
-        <Setter Property="BackgroundColor" Value="{DynamicResource AccentColor}"/>
-        <Setter Property="TextColor" Value="{DynamicResource AlternateTextColor}"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource HeaderBarTextColor}, Dark={StaticResource AlternateHeaderBarTextColor}}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource AccentColor}, Dark={StaticResource AlternateAccentColor}}"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="HeightRequest" Value="80"/>
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    
+    <Style TargetType="Label" x:Key="CellLabel">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkAccentColor}, Dark={StaticResource AlternatePrimaryText}}" />
     </Style>
 </ResourceDictionary>

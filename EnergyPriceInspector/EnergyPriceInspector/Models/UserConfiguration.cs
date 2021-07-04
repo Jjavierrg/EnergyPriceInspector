@@ -4,13 +4,17 @@
 
     public class UserConfiguration: BindableObject
     {
-        private int _geoId;
-
-        public int GeoId
+        public static GeoLocation DEFAULT_GEOLOCATION => new GeoLocation { Id = 8741, Name = Langs.Langs.Peninsula };
+        private GeoLocation _geoLocation;
+        public UserConfiguration()
         {
-            get { return _geoId; }
-            set { _geoId = value; OnPropertyChanged(); }
+            GeoLocation = DEFAULT_GEOLOCATION;
         }
 
+        public GeoLocation GeoLocation
+        {
+            get { return _geoLocation; }
+            set { _geoLocation = value; OnPropertyChanged(); }
+        }
     }
 }

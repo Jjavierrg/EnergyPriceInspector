@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Runtime.CompilerServices;
+    using System.Threading.Tasks;
     using Xamarin.Forms;
 
     public class BaseViewModel : BindableObject
@@ -32,6 +33,31 @@
             onChanged?.Invoke();
             OnPropertyChanged(propertyName);
             return true;
+        }
+        protected async Task ExecuteWithBusyIndicatorControl(Func<Task> func)
+        {
+            try
+            {
+                IsBusy = true;
+                await func();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        protected async Task<TOut> ExecuteWithBusyIndicatorControl<TOut>(Func<Task<TOut>> func)
+        {
+            try
+            {
+                IsBusy = true;
+                return await func();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }

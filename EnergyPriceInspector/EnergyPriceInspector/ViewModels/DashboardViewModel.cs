@@ -1,53 +1,59 @@
-﻿using EnergyPriceInspector.Services;
-using EnergyPriceInspector.Views;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace EnergyPriceInspector.ViewModels
+﻿namespace EnergyPriceInspector.ViewModels
 {
+    using EnergyPriceInspector.Models;
+    using EnergyPriceInspector.Services;
+    using EnergyPriceInspector.Views;
+    using System;
+    using System.Threading.Tasks;
+    using System.Windows.Input;
+    using Xamarin.Forms;
+
     public class DashboardViewModel : BaseViewModel
     {
-        private Command _navigateCommand;
+        private DashboardData _dashboardData;
         private Command _refreshCommand;
+        private Command _navigateToSettingsCommand;
 
         public DashboardViewModel()
         {
             Title = Langs.Langs.DashboardTitle;
-            NavigationService = DependencyService.Get<INavigationService>();
-            EnergyService = DependencyService.Get<IEnergyService>();
-            StorageService = DependencyService.Get<IStorageService>();
+            EnergyService = DependencyService.Get<IEnergyService>() ?? throw new ArgumentNullException("IEnergyService ");
+            StorageService = DependencyService.Get<IStorageService>() ?? throw new ArgumentNullException("IStorageService ");
+            UserConfiguration = DependencyService.Get<UserConfiguration>() ?? throw new ArgumentNullException("UserConfiguration ");
+            NavigationService = DependencyService.Get<INavigationService>() ?? throw new ArgumentNullException("INavigationService ");
 
-            _ = LoadData().ConfigureAwait(false);
+            _ = LoadDataAsync().ConfigureAwait(false);
         }
 
-        public ICommand NavigateCommand => _navigateCommand ??= new Command(async () => await NavigateCommandExecute(), () => !IsBusy);
-        public ICommand RefreshCommand => _refreshCommand ??= new Command(async () => await LoadData());
 
-        private INavigationService NavigationService { get; }
+        public DashboardData DashboardData
+        {
+            get => _dashboardData;
+            set => SetProperty(ref _dashboardData, value);
+        }
+
+        public ICommand RefreshCommand => _refreshCommand ??= new Command(async () => await RefreshDashboardData());
+        public ICommand NavigateToSettingsCommand => _navigateToSettingsCommand ??= new Command(async () => await NavigationService.NavigateToAsync<SettingsView>());
+
         private IEnergyService EnergyService { get; }
         private IStorageService StorageService { get; }
+        private UserConfiguration UserConfiguration { get; }
+        private INavigationService NavigationService { get; }
 
-        protected override void OnBusyChanged()
+        private Task LoadDataAsync() => ExecuteWithBusyIndicatorControl(async () =>
         {
-            _navigateCommand?.ChangeCanExecute();
-            _refreshCommand?.ChangeCanExecute();
-        }
+            var previousData = await StorageService.LoadDataAsync<DashboardData>(Constants.Constants.LASTDATA_SAVE_KEY);
+            previousData ??= await GetDashboardDataFromProvider();
+            DashboardData = previousData;
+        });
 
-        private async Task LoadData()
+        private Task RefreshDashboardData() => ExecuteWithBusyIndicatorControl(async () => DashboardData = await GetDashboardDataFromProvider());
+
+        private async Task<DashboardData> GetDashboardDataFromProvider()
         {
-            IsBusy = true;
-            try
-            {
-                var result = await EnergyService.GetPricesAsync();
-                await StorageService.SaveDataAsync("LAST_DATA", result);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            var result = await EnergyService.GetDashboardAsync(UserConfiguration?.GeoLocation);
+            await StorageService.SaveDataAsync(Constants.Constants.LASTDATA_SAVE_KEY, result);
+            return result;
         }
-
-        private Task NavigateCommandExecute() => NavigationService.NavigateToAsync<AboutView>();
     }
 }

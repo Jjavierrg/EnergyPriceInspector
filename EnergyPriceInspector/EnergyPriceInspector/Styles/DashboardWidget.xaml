@@ -8,7 +8,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Frame Margin="10" CornerRadius="10" BackgroundColor="{Binding Source={RelativeSource TemplatedParent}, Path=ColorStyle, Converter={StaticResource ColorStyleToBackgroundColorConverter}}">
-                        <Grid>
+                        <Grid BackgroundColor="{Binding Source={RelativeSource TemplatedParent}, Path=ColorStyle, Converter={StaticResource ColorStyleToBackgroundColorConverter}}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />
                                 <RowDefinition />

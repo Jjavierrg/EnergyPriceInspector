@@ -19,9 +19,10 @@
             var configuration = LoadConfiguration();
             RegisterDependencies(configuration);
             RegisterRoutes();
+            ConfigureTheme();
 
             MainPage = new ShellView();
-        }
+        }   
 
         protected override void OnStart()
         {
@@ -33,6 +34,16 @@
 
         protected override void OnResume()
         {
+        }
+
+        private void ConfigureTheme()
+        {
+                Current.UserAppTheme = Current.RequestedTheme;
+            Current.RequestedThemeChanged += (s, a) =>
+            {
+                Current.UserAppTheme = a.RequestedTheme;
+            };
+
         }
 
         private IConfiguration LoadConfiguration()

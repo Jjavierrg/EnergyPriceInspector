@@ -3,7 +3,8 @@
     using EnergyPriceInspector.Models;
     using EnergyPriceInspector.Services;
     using System;
-    using System.Linq;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Xamarin.Forms;
 
     public class SettingsViewModel : BaseViewModel
@@ -14,33 +15,26 @@
 
             StorageService = DependencyService.Get<IStorageService>() ?? throw new ArgumentNullException("IStorageService");
             UserConfiguration = DependencyService.Get<UserConfiguration>() ?? throw new ArgumentNullException("UserConfiguration");
+            EnergyService = DependencyService.Get<IEnergyService>() ?? throw new ArgumentNullException("IEnergyService");
+
             UserConfiguration.PropertyChanged += SaveDataAsync;
 
-            LoadData();
+            _ = LoadDataAsync().ConfigureAwait(false);
         }
 
         public UserConfiguration UserConfiguration { get; }
-        public Geo[] GeoLocations { get; private set; }
-        public Geo SelectedGeolocation
+        public IEnumerable<GeoLocation> GeoLocations { get; private set; }
+        public GeoLocation SelectedGeolocation
         {
-            get => GeoLocations.FirstOrDefault(x => x.geo_id == UserConfiguration?.GeoId);
-            set { UserConfiguration.GeoId = value?.geo_id ?? 0; OnPropertyChanged(); }
+            get => UserConfiguration.GeoLocation;
+            set { UserConfiguration.GeoLocation = value; OnPropertyChanged(); }
         }
 
 
         private IStorageService StorageService { get; }
+        private IEnergyService EnergyService { get; }
 
-
-        private void LoadData()
-        {
-            GeoLocations = new[] {
-                new Geo { geo_id = 8741, geo_name = Langs.Langs.Peninsula },
-                new Geo { geo_id = 8742, geo_name = Langs.Langs.Canarias },
-                new Geo { geo_id = 8743, geo_name = Langs.Langs.Baleares },
-                new Geo { geo_id = 8744, geo_name = Langs.Langs.Ceuta },
-                new Geo { geo_id = 8745, geo_name = Langs.Langs.Melilla }
-            };
-        }
+        private Task LoadDataAsync() => ExecuteWithBusyIndicatorControl(async () => GeoLocations = await EnergyService.GetGeolocationsAsync());
         private async void SaveDataAsync(object sender, System.ComponentModel.PropertyChangedEventArgs e) => await StorageService.SaveDataAsync(Constants.Constants.CONFIGURATION_SAVE_KEY, UserConfiguration);
     }
 }

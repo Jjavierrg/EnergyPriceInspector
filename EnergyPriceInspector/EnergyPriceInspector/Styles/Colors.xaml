@@ -4,9 +4,26 @@
     <Color x:Key="AccentColor">#FFAB40</Color>
     <Color x:Key="DarkAccentColor">#C56200</Color>
     <Color x:Key="LightAccentColor">#FFC246</Color>
+    <Color x:Key="TextColor">#212121</Color>
+    <Color x:Key="BackgroundColor">#FAFAFA</Color>
+    <Color x:Key="HeaderBarBackgroundColor">#FFAB40</Color>
+    <Color x:Key="HeaderBarTextColor">#FAFAFA</Color>
+    <Color x:Key="PrimaryBackground">#FFAB40</Color>
+    <Color x:Key="PrimaryText">#FAFAFA</Color>
+
+    <!--DARK THEME-->
+    <Color x:Key="AlternateAccentColor">#00695C</Color>
+    <Color x:Key="AlternateDarkAccentColor">#003D33</Color>
+    <Color x:Key="AlternateLightAccentColor">#439889</Color>
+    <Color x:Key="AlternateTextColor">#FAFAFA</Color>
+    <Color x:Key="AlternateBackgroundColor">#212121</Color>
+    <Color x:Key="AlternateHeaderBarBackgroundColor">#00695C</Color>
+    <Color x:Key="AlternateHeaderBarTextColor">#FAFAFA</Color>
+    <Color x:Key="AlternatePrimaryBackground">#00695C</Color>
+    <Color x:Key="AlternatePrimaryText">#FAFAFA</Color>
+
+    <!--COMMON-->
     <Color x:Key="SuccessColor">#388e3c</Color>
     <Color x:Key="DangerColor">#d32f2f</Color>
     <Color x:Key="InfoColor">#1e88e5</Color>
-    <Color x:Key="TextColor">#212121</Color>
-    <Color x:Key="AlternateTextColor">#FAFAFA</Color>
 </ResourceDictionary>
