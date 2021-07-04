@@ -74,6 +74,7 @@
             navigationService.RegisterRouteComponent<DashboardView>();
             navigationService.RegisterRouteComponent<AboutView>();
             navigationService.RegisterRouteComponent<SettingsView>();
+            navigationService.RegisterRouteComponent<DayPricesView>();
         }
     }
 }

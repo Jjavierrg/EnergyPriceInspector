@@ -115,6 +115,15 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Today Prices.
+        /// </summary>
+        internal static string DayPricesTitle {
+            get {
+                return ResourceManager.GetString("DayPricesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General Settings.
         /// </summary>
         internal static string GeneralSettings {
@@ -205,7 +214,7 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to View day prices.
+        ///   Looks up a localized string similar to View today prices.
         /// </summary>
         internal static string ViewDayPrices {
             get {

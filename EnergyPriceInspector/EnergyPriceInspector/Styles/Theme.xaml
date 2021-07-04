@@ -50,6 +50,14 @@ https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#f
     <Style TargetType="ContentPage">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource AlternateBackgroundColor}}" />
     </Style>
+
+    <Style TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource AlternateBackgroundColor}}" />
+    </Style>
+
+    <Style TargetType="CollectionView">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource AlternateBackgroundColor}}" />
+    </Style>
     
     <Style TargetType="Grid">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource AlternateBackgroundColor}}" />

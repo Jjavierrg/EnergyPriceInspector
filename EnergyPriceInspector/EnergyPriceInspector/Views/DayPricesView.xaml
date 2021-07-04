@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
+             xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
+             x:Class="EnergyPriceInspector.Views.DayPricesView"
+             Title="{Binding Title}"
+             >
+    <ContentPage.BindingContext>
+        <vm:DayPricesViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshCommand}">
+            <CollectionView ItemsSource="{Binding DayPrices}">
+                <CollectionView.Header>
+                    <StackLayout>
+                        <Label Style="{DynamicResource StatusSubtitle}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Static lang:Langs.LastUpdate}" />
+                                    <Span Text=": " />
+                                    <Span Text="{Binding UpdatedDate}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="5">
+                            <Frame HasShadow="True" CornerRadius="5" Padding="5" HorizontalOptions="FillAndExpand">
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="Large" />
+                                    <Label Text="{Static lang:Langs.PriceMeasure}" FontAttributes="Bold" FontSize="Small" VerticalOptions="End" />
+                                    <Label Text="{Binding Date, StringFormat='{0:t}'}" HorizontalOptions="EndAndExpand" FontAttributes="Italic" VerticalOptions="End" />
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <Grid></Grid>
+                </CollectionView.Footer>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

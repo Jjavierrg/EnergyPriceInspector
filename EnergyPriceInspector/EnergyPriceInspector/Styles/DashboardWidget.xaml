@@ -36,7 +36,7 @@
                             <Label HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="{DynamicResource AlternateTextColor}">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding Source={RelativeSource TemplatedParent}, Path=Price.Price, StringFormat='{0:n2}'}" FontSize="Large" FontAttributes="Bold" />
+                                        <Span Text="{Binding Source={RelativeSource TemplatedParent}, Path=Price.Price, StringFormat='{0:n4}'}" FontSize="Large" FontAttributes="Bold" />
                                         <Span Text=" " />
                                         <Span Text="{Static lang:Langs.PriceMeasure}" FontSize="Small" />
                                     </FormattedString>

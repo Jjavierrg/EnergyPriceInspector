@@ -135,6 +135,9 @@
   <data name="DashboardTitle" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="DayPricesTitle" xml:space="preserve">
+    <value>Today Prices</value>
+  </data>
   <data name="GeneralSettings" xml:space="preserve">
     <value>General Settings</value>
   </data>
@@ -166,6 +169,6 @@
     <value>Settings</value>
   </data>
   <data name="ViewDayPrices" xml:space="preserve">
-    <value>View day prices</value>
+    <value>View today prices</value>
   </data>
 </root>

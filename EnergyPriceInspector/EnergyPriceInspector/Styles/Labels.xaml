@@ -20,7 +20,7 @@
     </Style>
 
     <Style TargetType="Label" x:Key="StatusSubtitle">
-        <Setter Property="Margin" Value="10,5" />
-        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
     </Style>
 </ResourceDictionary>

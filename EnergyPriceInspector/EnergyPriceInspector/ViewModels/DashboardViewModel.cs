@@ -35,7 +35,7 @@
 
         public ICommand RefreshCommand => _refreshCommand ??= new Command(async () => await RefreshDashboardData());
         public ICommand NavigateToSettingsCommand => _navigateToSettingsCommand ??= new Command(async () => await NavigationService.NavigateToAsync<SettingsView>());
-        public ICommand NavigateToDayPricesCommand => _navigateToDayPricesCommand ??= new Command(async () => await NavigationService.NavigateToAsync<SettingsView>());
+        public ICommand NavigateToDayPricesCommand => _navigateToDayPricesCommand ??= new Command(async () => await NavigationService.NavigateToAsync<DayPricesView>());
 
         private IEnergyService EnergyService { get; }
         private IStorageService StorageService { get; }
