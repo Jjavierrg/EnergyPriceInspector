@@ -187,6 +187,15 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to €/kWh.
+        /// </summary>
+        internal static string PriceMeasure {
+            get {
+                return ResourceManager.GetString("PriceMeasure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string SettingsTitle {

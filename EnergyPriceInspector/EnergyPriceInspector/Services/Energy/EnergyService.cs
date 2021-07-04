@@ -62,7 +62,7 @@
             var jsonResponse = await httpResponse.Content.ReadAsStringAsync();
             var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
 
-            var result = await apiResponse?.indicator?.values.SelectAsync(async x => new PriceInformation { Date = x.datetime, Price = x.value, GeoLocation = await GetGeolocationsFromIdAsync(x.geo_id) });
+            var result = await apiResponse?.indicator?.values.SelectAsync(async x => new PriceInformation { Date = x.datetime, Price = x.value / 100, GeoLocation = await GetGeolocationsFromIdAsync(x.geo_id) });
             return result ?? Array.Empty<PriceInformation>();
         }
     }

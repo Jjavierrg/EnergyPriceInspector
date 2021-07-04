@@ -159,6 +159,9 @@
   <data name="Peninsula" xml:space="preserve">
     <value>Península</value>
   </data>
+  <data name="PriceMeasure" xml:space="preserve">
+    <value>€/kWh</value>
+  </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Settings</value>
   </data>
