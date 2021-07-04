@@ -12,6 +12,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />
                                 <RowDefinition />
+                                <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
@@ -31,7 +32,8 @@
                                 </Image.Triggers>
                             </Image>
                             <Label HorizontalOptions="Start" VerticalOptions="End" Grid.Row="0" Grid.Column="1" Text="{Binding Source={RelativeSource TemplatedParent}, Path=ColorStyle, Converter={StaticResource ColorStyleToTitleConverter}}" Style="{DynamicResource CaptionStyle}" TextColor="{DynamicResource AlternateTextColor}" Margin="5,0" />
-                            <Label HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Source={RelativeSource TemplatedParent}, Path=Price, StringFormat='{0:C}'}" Style="{DynamicResource TitleStyle}" TextColor="{DynamicResource AlternateTextColor}" />
+                            <Label HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Source={RelativeSource TemplatedParent}, Path=Price.Price, StringFormat='{0:C}'}" Style="{DynamicResource TitleStyle}" TextColor="{DynamicResource AlternateTextColor}" />
+                            <Label HorizontalOptions="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Source={RelativeSource TemplatedParent}, Path=Price.Date, StringFormat='{0:t}'}" TextColor="{DynamicResource AlternateTextColor}" />
                         </Grid>
                     </Frame>
                 </ControlTemplate>

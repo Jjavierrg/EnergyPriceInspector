@@ -138,6 +138,9 @@
   <data name="GeneralSettings" xml:space="preserve">
     <value>Datos Generales</value>
   </data>
+  <data name="LastUpdate" xml:space="preserve">
+    <value>Última actualización</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Ubicación</value>
   </data>
@@ -158,5 +161,8 @@
   </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="ViewDayPrices" xml:space="preserve">
+    <value>Ver precios de hoy</value>
   </data>
 </root>

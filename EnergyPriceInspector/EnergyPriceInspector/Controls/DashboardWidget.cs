@@ -1,6 +1,6 @@
 ﻿namespace EnergyPriceInspector.Controls
 {
-
+    using EnergyPriceInspector.Models;
     using Xamarin.Forms;
 
     public class DashboardWidget : ContentView
@@ -12,12 +12,12 @@
             LowValue
         }
 
-        public static readonly BindableProperty PriceProperty = BindableProperty.Create("Price", typeof(double?), typeof(DashboardWidget), null);
+        public static readonly BindableProperty PriceProperty = BindableProperty.Create("Price", typeof(PriceInformation), typeof(DashboardWidget), null);
         public static readonly BindableProperty ColorStyleProperty = BindableProperty.Create("ColorStyle", typeof(ColorStyles), typeof(DashboardWidget), ColorStyles.Info);
 
-        public double? Price
+        public PriceInformation Price
         {
-            get => (double?)GetValue(PriceProperty);
+            get => (PriceInformation)GetValue(PriceProperty);
             set => SetValue(PriceProperty, value);
         }
 

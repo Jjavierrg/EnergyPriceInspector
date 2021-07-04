@@ -124,6 +124,15 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Update.
+        /// </summary>
+        internal static string LastUpdate {
+            get {
+                return ResourceManager.GetString("LastUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
         internal static string Location {
@@ -183,6 +192,15 @@ namespace EnergyPriceInspector.Langs {
         internal static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View day prices.
+        /// </summary>
+        internal static string ViewDayPrices {
+            get {
+                return ResourceManager.GetString("ViewDayPrices", resourceCulture);
             }
         }
     }

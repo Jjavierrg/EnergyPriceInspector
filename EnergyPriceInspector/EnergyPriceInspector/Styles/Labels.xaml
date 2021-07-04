@@ -14,8 +14,13 @@
         <Setter Property="VerticalTextAlignment" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
-    
+
     <Style TargetType="Label" x:Key="CellLabel">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkAccentColor}, Dark={StaticResource AlternatePrimaryText}}" />
+    </Style>
+
+    <Style TargetType="Label" x:Key="StatusSubtitle">
+        <Setter Property="Margin" Value="10,5" />
+        <Setter Property="HorizontalOptions" Value="End" />
     </Style>
 </ResourceDictionary>

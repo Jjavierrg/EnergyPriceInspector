@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
              xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
+             xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              x:Class="EnergyPriceInspector.Views.DashboardView"
              Title="{Binding Title}"
              >
@@ -15,25 +16,24 @@
     <ContentPage.Content>
         <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshCommand}">
             <ScrollView>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding DashboardData.UpdatedDate, StringFormat='Last Update: {0}'}" HorizontalOptions="End" />
-                    <ctrl:DashboardWidget Grid.Row="1" Grid.Column="0" Price="{Binding DashboardData.MaxPrice.Price}" ColorStyle="HighValue" HeightRequest="1" />
-                    <ctrl:DashboardWidget Grid.Row="1" Grid.Column="1" Price="{Binding DashboardData.MinPrice.Price}" ColorStyle="LowValue" />
-                    <ctrl:DashboardWidget Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Price="{Binding DashboardData.ActualPrice.Price}" ColorStyle="Info"  />
-                    <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Save Data" Command="{Binding NavigateCommand}" />
-                </Grid>
+                <StackLayout>
+                    <Label Style="{DynamicResource StatusSubtitle}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Static lang:Langs.LastUpdate}" />
+                                <Span Text=": " />
+                                <Span Text="{Binding DashboardData.UpdatedDate}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <ctrl:DashboardWidget Price="{Binding DashboardData.ActualPrice}" ColorStyle="Info"  />
+                    <StackLayout Orientation="Horizontal">
+                        <ctrl:DashboardWidget Price="{Binding DashboardData.MaxPrice}" HorizontalOptions="FillAndExpand" ColorStyle="HighValue"/>
+                        <ctrl:DashboardWidget Price="{Binding DashboardData.MinPrice}" HorizontalOptions="FillAndExpand" ColorStyle="LowValue" />
+                    </StackLayout>
+
+                    <Button Text="{Static lang:Langs.ViewDayPrices}" Command="{Binding NavigateToDayPricesCommand}" VerticalOptions="EndAndExpand"/>
+                </StackLayout>
             </ScrollView>
         </RefreshView>
     </ContentPage.Content>
