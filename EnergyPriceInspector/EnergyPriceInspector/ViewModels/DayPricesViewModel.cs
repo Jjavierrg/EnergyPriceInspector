@@ -3,8 +3,10 @@
     using EnergyPriceInspector.Extensions;
     using EnergyPriceInspector.Models;
     using EnergyPriceInspector.Services;
-    using EnergyPriceInspector.Views;
+    using Microcharts;
+    using SkiaSharp;
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Threading.Tasks;
@@ -14,6 +16,7 @@
     public class DayPricesViewModel : BaseViewModel
     {
         private ObservableCollection<PriceInformation> _dayPrices;
+        private Chart _chartData;
         private DateTime _updatedDate;
         private Command _refreshCommand;
 
@@ -30,6 +33,12 @@
         {
             get => _dayPrices;
             set => SetProperty(ref _dayPrices, value);
+        }
+
+        public Chart ChartData
+        {
+            get => _chartData;
+            set => SetProperty(ref _chartData, value);
         }
 
         public DateTime UpdatedDate
@@ -51,7 +60,28 @@
             var prices = await EnergyService.GetPricesAsync(UserConfiguration?.GeoLocation?.Id, startOfToday, endOfToday);
 
             DayPrices = prices?.OrderBy(x => x.Date).ToObservableCollection();
+            ChartData = GenerateChartFromApiData(DayPrices);
             UpdatedDate = DateTime.Now;
         });
+
+        private static Chart GenerateChartFromApiData(IEnumerable<PriceInformation> data)
+        {
+            if (!(data?.Any() ?? false))
+                return null;
+
+            return new LineChart
+            {
+                LineMode = LineMode.Straight,
+                LabelTextSize = 20,
+                LabelOrientation = Orientation.Vertical,
+                Entries = data.Select((x, i) => new ChartEntry(x.Price)
+                {
+                    Color = SKColor.Parse("#1ab2ff"),
+                    TextColor = SKColor.Parse("#1ab2ff"),
+                    Label = i % 3 == 0 ? x.Date.ToString("t") : string.Empty,
+                    ValueLabel = x.Price.ToString()
+                })
+            };
+        }
     }
 }
