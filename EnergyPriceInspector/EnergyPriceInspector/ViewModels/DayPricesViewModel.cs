@@ -74,12 +74,15 @@
                 LineMode = LineMode.Straight,
                 LabelTextSize = 20,
                 LabelOrientation = Orientation.Vertical,
+                ShowYAxisLines = true,
+                ShowYAxisText = true,
+                YAxisPosition = Position.Left,
+                YAxisTextPaint = new SKPaint(new SKFont { Size = 20 }),
                 Entries = data.Select((x, i) => new ChartEntry(x.Price)
                 {
-                    Color = SKColor.Parse("#1ab2ff"),
-                    TextColor = SKColor.Parse("#1ab2ff"),
-                    Label = i % 3 == 0 ? x.Date.ToString("t") : string.Empty,
-                    ValueLabel = x.Price.ToString()
+                    Color = SKColor.Parse("#1e88e5"),
+                    TextColor = SKColor.Parse("#1e88e5"),
+                    Label = i % 3 == 0 ? x.Date.ToString("t") : string.Empty
                 })
             };
         }

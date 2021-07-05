@@ -45,7 +45,9 @@
         private Task LoadDataAsync() => ExecuteWithBusyIndicatorControl(async () =>
         {
             var previousData = await StorageService.LoadDataAsync<DashboardData>(Constants.Constants.LASTDATA_SAVE_KEY);
-            previousData ??= await GetDashboardDataFromProvider();
+            if (previousData?.ActualPrice == null)
+                previousData = await GetDashboardDataFromProvider();
+
             DashboardData = previousData;
         });
 

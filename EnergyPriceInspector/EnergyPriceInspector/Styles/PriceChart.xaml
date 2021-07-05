@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+                    xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style TargetType="ctrl:PriceChart">
+        <Setter Property="ChartBackgroundColor" Value="{AppThemeBinding Light={StaticResource BackgroundColor}, Dark={StaticResource AlternateBackgroundColor}}" />
+        <Setter Property="YAxisTextPaint" Value="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource AlternateTextColor}}" />
+        <Setter Property="YAxisLinesPaint" Value="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource AlternateTextColor}}" />
+        <Setter Property="LabelColor" Value="{AppThemeBinding Light={StaticResource TextColor}, Dark={StaticResource AlternateTextColor}}" />
+        <Setter Property="SerieColor" Value="{AppThemeBinding Light={StaticResource AccentColor}, Dark={StaticResource AlternateAccentColor}}" />
+    </Style>
+</ResourceDictionary>

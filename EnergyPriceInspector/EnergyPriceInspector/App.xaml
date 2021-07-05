@@ -15,6 +15,7 @@
                 <ResourceDictionary Source="Styles/Labels.xaml" />
                 <ResourceDictionary Source="Styles/Buttons.xaml" />
                 <ResourceDictionary Source="Styles/DashboardWidget.xaml" />
+                <ResourceDictionary Source="Styles/PriceChart.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

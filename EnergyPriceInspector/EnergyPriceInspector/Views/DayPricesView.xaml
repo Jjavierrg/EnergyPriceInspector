@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              xmlns:chart="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
              x:Class="EnergyPriceInspector.Views.DayPricesView"
              Title="{Binding Title}"
              >
@@ -21,7 +22,7 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <chart:ChartView HeightRequest="210" Chart="{Binding ChartData}"></chart:ChartView>
+            <ctrl:PriceChart HeightRequest="210" Prices="{Binding DayPrices}"></ctrl:PriceChart>
             <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshCommand}">
                 <CollectionView ItemsSource="{Binding DayPrices}">
                     <CollectionView.ItemTemplate>
