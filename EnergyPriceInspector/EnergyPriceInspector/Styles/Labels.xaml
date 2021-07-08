@@ -19,6 +19,10 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkAccentColor}, Dark={StaticResource AlternatePrimaryText}}" />
     </Style>
 
+    <Style TargetType="Span" x:Key="HyperlinkSpan">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource DarkAccentColor}, Dark={StaticResource AlternateLightAccentColor}}" />
+    </Style>
+
     <Style TargetType="Label" x:Key="StatusSubtitle">
         <Setter Property="Padding" Value="10,5" />
         <Setter Property="HorizontalOptions" Value="EndAndExpand" />

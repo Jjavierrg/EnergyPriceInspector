@@ -6,7 +6,7 @@
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              x:Class="EnergyPriceInspector.Views.ShellView"
              IsBusy="{Binding IsBusy}"
-       >
+             Title="{Binding Title}">
     <Shell.BindingContext>
         <vm:ShellViewModel />
     </Shell.BindingContext>

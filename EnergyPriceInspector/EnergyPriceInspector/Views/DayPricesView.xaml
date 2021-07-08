@@ -6,8 +6,8 @@
              xmlns:chart="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
              x:Class="EnergyPriceInspector.Views.DayPricesView"
-             Title="{Binding Title}"
-             >
+             IsBusy="{Binding IsBusy}"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:DayPricesViewModel />
     </ContentPage.BindingContext>

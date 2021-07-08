@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
+             xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              x:Class="EnergyPriceInspector.Views.AboutView"
              IsBusy="{Binding IsBusy}"
              Title="{Binding Title}">
@@ -9,12 +10,20 @@
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-            <ScrollView>
-                <FlexLayout Direction="Column">
-                    <Button Text="Cambiar busy" Command="{Binding BusyToogleCommand}" />
-                </FlexLayout>
-            </ScrollView>
-        </RefreshView>
+        <StackLayout Padding="50">
+            <Label Text="{Static lang:Langs.AboutInfo}" />
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Static lang:Langs.AboutMail}" />
+                        <Span Text="Jjavierrg@gmail.com" Style="{DynamicResource Key=HyperlinkSpan}" TextDecorations="Underline" x:Name="spEmailAddress">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SendMailCommand}" CommandParameter="{Binding Source={x:Reference spEmailAddress}, Path=Text}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

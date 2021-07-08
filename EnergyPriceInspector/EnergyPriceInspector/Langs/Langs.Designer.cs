@@ -61,6 +61,24 @@ namespace EnergyPriceInspector.Langs {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Project developed for Development of cross-platform applications course of MIMO master from Universidad Pontificia de Salamanca.
+        /// </summary>
+        internal static string AboutInfo {
+            get {
+                return ResourceManager.GetString("AboutInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to App develop by: .
+        /// </summary>
+        internal static string AboutMail {
+            get {
+                return ResourceManager.GetString("AboutMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         internal static string AboutTitle {
@@ -147,6 +165,28 @@ namespace EnergyPriceInspector.Langs {
         internal static string Location {
             get {
                 return ResourceManager.GetString("Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dear student:
+        ///Your practice is wonderful, so I confirm that I will give you a 10.
+        ///Bests, the teacher
+        ///
+        ///(I had to try it....).
+        /// </summary>
+        internal static string MailBody {
+            get {
+                return ResourceManager.GetString("MailBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Greetings from the teacher.
+        /// </summary>
+        internal static string MailSubject {
+            get {
+                return ResourceManager.GetString("MailSubject", resourceCulture);
             }
         }
         

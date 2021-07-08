@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              x:Class="EnergyPriceInspector.Views.SettingsView"
+             IsBusy="{Binding IsBusy}"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:SettingsViewModel />

@@ -6,8 +6,8 @@
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
              xmlns:behv="clr-namespace:EnergyPriceInspector.Behaviors"
              x:Class="EnergyPriceInspector.Views.DashboardView"
-             Title="{Binding Title}"
-             >
+             IsBusy="{Binding IsBusy}"
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:DashboardViewModel />
     </ContentPage.BindingContext>
