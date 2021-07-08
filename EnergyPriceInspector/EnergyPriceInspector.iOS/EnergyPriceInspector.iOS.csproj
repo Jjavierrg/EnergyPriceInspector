@@ -151,4 +151,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\settings.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\alternatedashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\alternateinfo.png" />
+  </ItemGroup>
 </Project>

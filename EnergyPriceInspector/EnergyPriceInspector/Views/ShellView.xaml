@@ -14,7 +14,7 @@
         <Label Style="{DynamicResource HeaderLabel}" Text="{Binding Title}"></Label>
     </Shell.FlyoutHeader>
     <FlyoutItem Title="Dashboard" FlyoutDisplayOptions="AsMultipleItems" Shell.TabBarIsVisible="False">
-        <ShellContent Icon="dashboard.png" Title="{Static lang:Langs.DashboardTitle}" ContentTemplate="{DataTemplate v:DashboardView}" />
-        <ShellContent Icon="info.png" Title="{Static lang:Langs.AboutTitle}" ContentTemplate="{DataTemplate v:AboutView}" />
+        <ShellContent Icon="{AppThemeBinding Light=dashboard.png, Dark=alternatedashboard.png}" Title="{Static lang:Langs.DashboardTitle}" ContentTemplate="{DataTemplate v:DashboardView}" />
+        <ShellContent Icon="{AppThemeBinding Light=info.png, Dark=alternateinfo.png}" Title="{Static lang:Langs.AboutTitle}" ContentTemplate="{DataTemplate v:AboutView}" />
     </FlyoutItem>
 </Shell>
