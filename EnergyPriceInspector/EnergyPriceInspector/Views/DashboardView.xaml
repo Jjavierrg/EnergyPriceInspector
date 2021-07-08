@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:EnergyPriceInspector.ViewModels"
              xmlns:ctrl="clr-namespace:EnergyPriceInspector.Controls"
              xmlns:lang="clr-namespace:EnergyPriceInspector.Langs"
+             xmlns:behv="clr-namespace:EnergyPriceInspector.Behaviors"
              x:Class="EnergyPriceInspector.Views.DashboardView"
              Title="{Binding Title}"
              >
@@ -26,10 +27,22 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <ctrl:DashboardWidget Price="{Binding DashboardData.ActualPrice}" ColorStyle="Info"  />
+                    <ctrl:DashboardWidget Price="{Binding DashboardData.ActualPrice}" ColorStyle="Info">
+                        <ctrl:DashboardWidget.Behaviors>
+                            <behv:FadeInBehavior />
+                        </ctrl:DashboardWidget.Behaviors>
+                    </ctrl:DashboardWidget>
                     <StackLayout Orientation="Horizontal">
-                        <ctrl:DashboardWidget Price="{Binding DashboardData.MaxPrice}" HorizontalOptions="FillAndExpand" ColorStyle="HighValue"/>
-                        <ctrl:DashboardWidget Price="{Binding DashboardData.MinPrice}" HorizontalOptions="FillAndExpand" ColorStyle="LowValue" />
+                        <ctrl:DashboardWidget Price="{Binding DashboardData.MaxPrice}" HorizontalOptions="FillAndExpand" ColorStyle="HighValue">
+                            <ctrl:DashboardWidget.Behaviors>
+                                <behv:FadeInBehavior />
+                            </ctrl:DashboardWidget.Behaviors>
+                        </ctrl:DashboardWidget>
+                        <ctrl:DashboardWidget Price="{Binding DashboardData.MinPrice}" HorizontalOptions="FillAndExpand" ColorStyle="LowValue">
+                            <ctrl:DashboardWidget.Behaviors>
+                                <behv:FadeInBehavior />
+                            </ctrl:DashboardWidget.Behaviors>
+                        </ctrl:DashboardWidget>
                     </StackLayout>
 
                     <Button Text="{Static lang:Langs.ViewDayPrices}" Command="{Binding NavigateToDayPricesCommand}" VerticalOptions="EndAndExpand"/>

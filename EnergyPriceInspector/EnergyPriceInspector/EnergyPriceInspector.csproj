@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviors\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Langs\Langs.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
