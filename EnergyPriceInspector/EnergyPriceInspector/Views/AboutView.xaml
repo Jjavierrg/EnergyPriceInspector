@@ -16,7 +16,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="{Static lang:Langs.AboutMail}" />
-                        <Span Text="Jjavierrg@gmail.com" Style="{DynamicResource Key=HyperlinkSpan}" TextDecorations="Underline" x:Name="spEmailAddress">
+                        <Span Text="jjrodriguezga.inf@upsa.es" Style="{DynamicResource Key=HyperlinkSpan}" TextDecorations="Underline" x:Name="spEmailAddress">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding SendMailCommand}" CommandParameter="{Binding Source={x:Reference spEmailAddress}, Path=Text}" />
                             </Span.GestureRecognizers>
